@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PablotonLab - Simulador de Física</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strock-width="2">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+                <span class="brand">Newton<span>Lab</span></span>
+            </div>
+            <div class="labels">
+                <label for="">Laboratorio de Física</label>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-layout">
+        <aside class="sidebar">
+            <section class="panel glass">
+                <div class="panel-header">
+                    <h2>Parámetros a Calcular</h2>
+                    <p>Ingresar Parámetros</p>
+                </div>
+
+                <div class="input-group">
+                    <div class="field">
+                        <label for="masa1">Masa del Bloque 1 (Kg)</label>
+                        <input type="number" id="masa1">
+                    </div>
+                    <div class="field">
+                        <label for="masa2">Masas del Bloque 2 (Kg)</label>
+                        <input type="number" id="masa2">
+                    </div>
+                    <div class="field">
+                        <div class="label-row">
+                            <label>Fricción Cinética (μk)</label>
+                            <span class="value-display">0.35</span>
+                        </div>
+                        <input type="range" min="0" max="1" step="0.01" value="0.35">
+                    </div>
+
+                    <div class="field inline">
+                        <label>Fricción Activada</label>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <button class="btn-primary">Calcular Parámetros</button>
+            </section>
+
+            <!-- PANEL DE RESULTADOS -->
+            <section class="panel glass results-section">
+                <div class="panel-header-results">
+                    <div>
+                        <h2>Resultados</h2>
+                    </div>
+                    <span class="status-badge-update">
+                        <span class="dot"></span>
+                        En Tiempo Real
+                    </span>
+                </div>
+
+                <div class="results-content font">
+                    <div class="res-item">
+                        <span class="res-label">Aceleración (a):</span>
+                        <span class="res-value"><strong id="res-a">0.00</strong> <small>m/s²</small></span>
+                    </div>
+                    <div class="res-item">
+                        <span class="res-label">Tensión (T):</span>
+                        <span class="res-value"><strong id="res-t">0.00</strong> <small>N</small></span>
+                    </div>
+                    <div class="res-item">
+                        <span class="res-label">Fuerza de Fricción:</span>
+                        <span class="res-value"><strong id="res-f">0.00</strong> <small>N</small></span>
+                    </div>
+                </div>
+            </section>
+        </aside>
+
+        <!-- ÁREA DE ANIMACIÓN -->
+        <section class="animation-container">
+            <div class="canvas-card glass">
+                <div class="canvas-header">
+                    <h2>Área de Animación</h2>
+                    <p>SIMULACIÓN EN TIEMPO REAL</p>
+                </div>
+
+                <div class="problem-overlay">
+                    <div class="physics-problem">
+                        <h3>📝 Enunciado del Problema</h3>
+                        <p>
+                            Un bloque de masa <strong><span id="txt-m1">m1</span></strong> se encuentra sobre una superficie horizontal 
+                            con un coeficiente de fricción cinética de <strong><span id="txt-uk">μk</span></strong>. Este bloque está unido 
+                            mediante una cuerda ideal a un bloque de masa <strong><span id="txt-m2">m2</span></strong>.
+                        </p>
+                        <p class="question">
+                            Determina la aceleración del sistema y la tensión de la cuerda.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="scene-wrapper">
+                    <canvas id="simuladorCanvas"></canvas>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-copy">
+                © 2026 NewtonLab Physics. Todos los derechos reservados.
+            </div>
+            <div class="footer-description">
+                <label>Pablo González</label>
+                <label>Laboratorio 2</label>
+                <label>Universidad Mariano Gálvez</label>
+            </div>
+        </div>
+    </footer>
+
+    <script src="logica.js"></script>
+
+</body>
+</html>
